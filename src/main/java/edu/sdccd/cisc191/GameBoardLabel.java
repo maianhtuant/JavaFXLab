@@ -12,5 +12,6 @@ public class GameBoardLabel extends Label {
     public GameBoardLabel() {
         // TODO: set Label properties like padding
         setPadding(LABEL_PADDING);
+        //setPadding(new Insets(20));
     }
 }

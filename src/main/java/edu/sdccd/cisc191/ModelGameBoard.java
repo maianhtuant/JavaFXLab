@@ -33,6 +33,7 @@ public class ModelGameBoard
             {
                 x = randomNumberGenerator.nextInt(DIMENSION);
                 y = randomNumberGenerator.nextInt(DIMENSION);
+                System.out.println(x + " - " +y);
             } while (gameBoard[x][y]);
             gameBoard[x][y] = true;
         }

@@ -1,5 +1,7 @@
 package edu.sdccd.cisc191;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -53,8 +55,27 @@ public class ViewGameBoard extends Application
         //create Menu
         Menu menu = new Menu("File");
         MenuItem newItem = new MenuItem("new game");
+        EventHandler<ActionEvent> eventNewGame = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ViewGameBoard game = new ViewGameBoard();
+                try{
+                    game.start(new Stage());
+                    stage.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        newItem.setOnAction(eventNewGame);
         MenuItem exitItem = new MenuItem("exit game");
-
+        EventHandler<ActionEvent> eventExitItem = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.close();
+            }
+        };
+        exitItem.setOnAction(eventExitItem);
 
 
         menu.getItems().add(newItem);
@@ -120,4 +141,6 @@ public class ViewGameBoard extends Application
         stage.show();
 
     }
+
+
 }
